@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Syed Abdullah Shamsi</title>
+  <meta name="description" content="Notes on data science, machine learning and Flutter development from Syed Muhammad Abdullah Shamsi.">
+  <meta name="author" content="Syed Muhammad Abdullah Shamsi">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+  <nav class="site-nav">
+    <div class="container-narrow d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">SA</span>
+        Syed Abdullah
+      </a>
+
+      <button class="navbar-toggler d-lg-none glass" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" style="padding:.4rem .6rem; border-radius:8px;">
+        <ion-icon name="menu-outline" style="color:#edf1f8; font-size:1.4rem;"></ion-icon>
+      </button>
+
+      <div class="collapse navbar-collapse flex-grow-0" id="navMenu">
+        <ul class="nav-links list-unstyled d-flex mb-0">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html#contact" class="btn-glass btn-glass-accent d-none d-lg-inline-flex">
+        <ion-icon name="paper-plane-outline"></ion-icon> Let's talk
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- =========================================================
+         PAGE HERO
+    ========================================================== -->
+    <section class="page-hero">
+      <div class="container-narrow">
+        <div class="breadcrumb-glass"><a href="index.html">Home</a> / Blog</div>
+        <span class="section-label">Blog</span>
+        <h1>Notes on data, models and mobile apps.</h1>
+        <p class="section-sub mt-3">
+          Exploring practical insights, technical experiences, and lessons learned
+          through my work in Data Science, Artificial Intelligence, Software Development,
+           and Information Technology.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FEATURED POST
+    ========================================================== -->
+    <section class="pt-0">
+      <div class="container-narrow">
+        <div class="blog-post-featured glass mb-5">
+          <span class="tag-pill">Explainable AI</span>
+          <h2 class="section-heading">What I learned building an explainable diabetes classifier</h2>
+          <div class="blog-meta mb-3">
+            <span><ion-icon name="calendar-outline"></ion-icon> Aug 2026</span>
+            <span><ion-icon name="time-outline"></ion-icon> 6 min read</span>
+          </div>
+          <p class="mb-3">
+            For my final year project, accuracy alone wasn't enough — the model also had to explain
+            *why* it flagged a patient as high-risk. Here's what changed once I added LIME on top of
+            our SVM and Random Forest models, and why an explanation panel ended up being the feature
+            doctors cared about most in feedback sessions.
+          </p>
+          <button class="btn-ghost" type="button" data-bs-toggle="collapse" data-bs-target="#post1">
+            Read full post <ion-icon name="chevron-down-outline"></ion-icon>
+          </button>
+          <div class="collapse mt-3" id="post1">
+            <p class="mb-3">
+              We started with the usual pipeline — clean the dataset, engineer features, train a few
+              candidate models, pick the best performer. SVM and Random Forest both landed in a
+              similar accuracy range, so the deciding factor became something we hadn't planned for:
+              could we explain a single prediction to someone who isn't a data scientist?
+            </p>
+            <p class="mb-3">
+              That's where LIME came in. Instead of treating the model as a black box, LIME
+              approximates its behaviour around one specific prediction, then ranks which input
+              features pushed that prediction up or down. Wiring this into the Flutter front end meant
+              every result screen could show not just "high risk" but a short list of the readings
+              driving that call — glucose level, BMI, age, and so on.
+            </p>
+            <p>
+              The biggest lesson: explainability isn't a bolt-on feature, it changes how you evaluate
+              the whole project. We started checking whether explanations made clinical sense, not
+              just whether accuracy numbers looked good — and that caught a couple of features that
+              were technically predictive but practically misleading.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         POST GRID
+         To add a new post: duplicate a .col + .blog-card block and
+         its matching .collapse content block, then update the id
+         used by data-bs-target / id so they still match.
+    ========================================================== -->
+    <section class="section pt-0">
+      <div class="container-narrow">
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <article class="blog-card glass">
+              <div class="blog-thumb" style="background:linear-gradient(135deg,#5b6cff,#22d3c9);">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span><ion-icon name="calendar-outline"></ion-icon> Jul 2026</span>
+                  <span><ion-icon name="time-outline"></ion-icon> 4 min</span>
+                </div>
+                <h4>Getting started with Flutter: a beginner's roadmap</h4>
+                <p>The order I'd learn Flutter in if I were starting today — widgets first, state
+                  management second, and packages only once the basics feel automatic.</p>
+                <button class="blog-readmore btn-ghost" type="button" data-bs-toggle="collapse" data-bs-target="#post2">
+                  Read more <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="collapse mt-3" id="post2">
+                  <p class="small">
+                    Start with layout widgets until Rows, Columns and Stacks feel automatic, then move
+                    to stateful widgets before touching any state-management package. Once "setState"
+                    starts to feel limiting on a real project, that's the right moment to reach for
+                    Provider or Riverpod — not before, or the extra abstraction just adds confusion.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="blog-card glass">
+              <div class="blog-thumb" style="background:linear-gradient(135deg,#22d3c9,#5b6cff);">
+                <ion-icon name="layers-outline"></ion-icon>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span><ion-icon name="calendar-outline"></ion-icon> Jun 2026</span>
+                  <span><ion-icon name="time-outline"></ion-icon> 5 min</span>
+                </div>
+                <h4>CNN architectures compared: AlexNet vs VGG16 vs VGG19</h4>
+                <p>Notes from training four CNN architectures on the same sports-ball dataset —
+                  where the extra depth of VGG helped, and where it just meant slower training.</p>
+                <button class="blog-readmore btn-ghost" type="button" data-bs-toggle="collapse" data-bs-target="#post3">
+                  Read more <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="collapse mt-3" id="post3">
+                  <p class="small">
+                    AlexNet trained fastest and got us a working baseline within an hour. LeNet, being
+                    much shallower, struggled once the image classes got visually similar. VGG16 and
+                    VGG19 closed that gap, but the deeper VGG19 barely improved on VGG16 despite
+                    costing noticeably more training time — a reminder that more layers isn't
+                    automatically a better trade-off for a small dataset.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="blog-card glass">
+              <div class="blog-thumb" style="background:linear-gradient(135deg,#7b6cff,#22b6d3);">
+                <ion-icon name="funnel-outline"></ion-icon>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span><ion-icon name="calendar-outline"></ion-icon> May 2026</span>
+                  <span><ion-icon name="time-outline"></ion-icon> 3 min</span>
+                </div>
+                <h4>From raw CSV to insight: my data-cleaning checklist</h4>
+                <p>The five checks I run on every new dataset during my Data Science &amp; Analytics
+                  internship, before a single model gets trained.</p>
+                <button class="blog-readmore btn-ghost" type="button" data-bs-toggle="collapse" data-bs-target="#post4">
+                  Read more <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                <div class="collapse mt-3" id="post4">
+                  <p class="small">
+                    In order: check for missing values and decide impute vs. drop per column, check
+                    data types against what each column actually represents, scan for duplicate rows,
+                    look at outliers with a boxplot before deciding whether they're errors or real
+                    signal, and finally confirm class balance for anything I'll later classify. Doing
+                    this in the same order every time has saved me from more than one bad model.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="site-footer">
+    <div class="container-narrow d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3">
+      <p class="mb-0">&copy; <span id="year"></span> Syed Muhammad Abdullah Shamsi. Built with Bootstrap &amp; a lot of coffee.</p>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/syed-abdullah-shamsi" target="_blank" rel="noopener" class="icon-chip" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://github.com/Syed-Abdullah-Shamsi" target="_blank" rel="noopener" class="icon-chip" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="mailto:Syedshamsi521@gmail.com" class="icon-chip" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="to-top icon-chip glass" aria-label="Back to top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
